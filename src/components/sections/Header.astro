@@ -1,8 +1,28 @@
 ---
+import { basics } from "@cv";
+import Section from "@/components/Section.astro";
 
+const { name, label, phone, email, location } = basics;
+const { city, region } = location;
+
+const footerInfo = [`${city}, ${region}`, phone, email];
 ---
 
-<header class="flex flex-col items-center justify-center">
-  <h1>Jorge David Saenz Diaz</h1>
-  <p>Información</p>
-</header>
+<Section>
+  <header class="flex flex-col items-center justify-center mb-1">
+    <h1 class="text-6xl">{name}</h1>
+    <h2 class="text-2xl">{label}</h2>
+  </header>
+  <footer class="flex flex-row items-center justify-center gap-2">
+    {
+      footerInfo.map((info, index) => {
+        return (
+          <>
+            <p class="text-m">{info}</p>
+            {index !== footerInfo.length - 1 && <span class="text-m">|</span>}
+          </>
+        );
+      })
+    }
+  </footer>
+</Section>

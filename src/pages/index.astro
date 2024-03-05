@@ -1,10 +1,24 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/sections/Header.astro";
+import Education from "@/components/sections/Education.astro";
+import Experience from "@/components/sections/Experience.astro";
+import Header from "@/components/sections/Header.astro";
+import Languages from "@/components/sections/Languages.astro";
+import Layout from "@/layouts/Layout.astro";
+import Profile from "@/components/sections/Profile.astro";
+import Skills from "@/components/sections/Skills.astro";
+import Volunteering from "@/components/sections/Volunteering.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <Header />
+  <main>
+    <Header />
+    <Profile />
+    <Experience />
+    <Education />
+    <Volunteering />
+    <Skills />
+    <Languages />
+  </main>
 </Layout>
 
 <style>
@@ -12,5 +26,9 @@ import Header from "../components/sections/Header.astro";
     padding: 4rem;
     margin: auto;
     width: 100%;
+  }
+
+  section {
+    margin-bottom: 2rem;
   }
 </style>

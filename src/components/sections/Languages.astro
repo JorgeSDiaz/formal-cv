@@ -1,0 +1,17 @@
+---
+import Section from "@/components/Section.astro";
+
+import { languages } from "@cv";
+---
+
+<Section title="Idiomas">
+  <ul class="flex gap-5">
+    {
+      languages.map((language) => (
+        <li>
+          <span class="font-bold">{language.language}</span> - {language.level}
+        </li>
+      ))
+    }
+  </ul>
+</Section>

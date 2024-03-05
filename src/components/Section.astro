@@ -1,0 +1,24 @@
+---
+import Divider from "./Divider.astro";
+
+const { title } = Astro.props;
+---
+
+<section>
+  {
+    title && (
+      <>
+        <h2 class="font-bold text-xl">{title}</h2>
+        <Divider />
+      </>
+    )
+  }
+  <slot />
+</section>
+
+<style>
+  section {
+    max-width: 700px;
+    margin: 0 auto 10px;
+  }
+</style>

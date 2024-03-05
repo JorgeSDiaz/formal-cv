@@ -1,0 +1,18 @@
+---
+import Section from "@/components/Section.astro";
+
+import { volunteering } from "@cv";
+---
+
+<Section title="Voluntariados">
+  <ul>
+    {
+      volunteering.map((volunteer) => (
+        <li>
+          <span class="font-bold">{volunteer.organization}</span> -{" "}
+          {volunteer.position}
+        </li>
+      ))
+    }
+  </ul>
+</Section>
