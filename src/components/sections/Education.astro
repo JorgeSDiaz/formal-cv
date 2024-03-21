@@ -1,10 +1,10 @@
 ---
-import Section from "@/components/Section.astro";
-
 import { education } from "@cv";
 ---
 
-<Section title="Educación">
+<section>
+  <h2 class="font-bold text-xl">Educación</h2>
+  <hr class="border-gray-300" />
   <ul>
     {
       education.map(
@@ -30,4 +30,4 @@ import { education } from "@cv";
       )
     }
   </ul>
-</Section>
+</section>

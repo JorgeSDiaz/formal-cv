@@ -7,6 +7,11 @@ import Layout from "@/layouts/Layout.astro";
 import Profile from "@/components/sections/Profile.astro";
 import Skills from "@/components/sections/Skills.astro";
 import Volunteering from "@/components/sections/Volunteering.astro";
+import Section from "@/components/Section.astro";
+
+// div class="education-voluntering" is used to display the education and volunteering sections side by side
+// Future: create a component to display 2 sections side by side
+
 ---
 
 <Layout title="Welcome to Astro.">
@@ -14,8 +19,12 @@ import Volunteering from "@/components/sections/Volunteering.astro";
     <Header />
     <Profile />
     <Experience />
-    <Education />
-    <Volunteering />
+    <Section>
+    <div class="education-voluntering">
+      <Education />
+      <Volunteering />
+    </div>
+    </Section>
     <Skills />
     <Languages />
   </main>
@@ -23,12 +32,19 @@ import Volunteering from "@/components/sections/Volunteering.astro";
 
 <style>
   main {
-    padding: 4rem;
+    padding: 2.5rem;
     margin: auto;
     width: 100%;
   }
 
   section {
     margin-bottom: 2rem;
+  }
+
+  .education-voluntering {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
   }
 </style>

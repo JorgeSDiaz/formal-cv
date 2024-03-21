@@ -8,14 +8,16 @@ import { work } from "@cv";
   <ul>
     {
       work.map((job) => {
-        const { name, position, summary, startDate, endDate } = job;
+        const { name, position, summary, startDate, endDate, url } = job;
 
         return (
           <li class="mb-3">
             <article>
               <header class="flex flexrow justify-between justify-items-center mb-1">
                 <div class="flex flex-col">
-                  <h3 class="text-l font-bold">{name}</h3>
+                  <h3 class="text-l font-bold">
+                    <a href=`${url}` target="_blank">{name}</a>
+                  </h3>
                   <h4 class="text-m font-bold">{position}</h4>
                 </div>
                 <time class="text-sm font-bold">

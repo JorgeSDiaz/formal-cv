@@ -2,10 +2,15 @@
 import { basics } from "@cv";
 import Section from "@/components/Section.astro";
 
-const { name, label, phone, email, location } = basics;
+const { name, label, phone, email, location, profiles } = basics;
 const { city, region } = location;
 
 const footerInfo = [`${city}, ${region}`, phone, email];
+const socialIcons: { [key: string]: string } = {
+  // Put the key word of the social network exactly as it is in the JSON file
+  "LinkedIn": "https://www.svgrepo.com/show/510045/linkedin.svg",
+  "GitHub": "https://www.svgrepo.com/show/512317/github-142.svg"
+}
 ---
 
 <Section>
@@ -13,16 +18,35 @@ const footerInfo = [`${city}, ${region}`, phone, email];
     <h1 class="text-6xl">{name}</h1>
     <h2 class="text-2xl">{label}</h2>
   </header>
-  <footer class="flex flex-row items-center justify-center gap-2">
-    {
-      footerInfo.map((info, index) => {
-        return (
-          <>
-            <p class="text-m">{info}</p>
-            {index !== footerInfo.length - 1 && <span class="text-m">|</span>}
-          </>
-        );
-      })
-    }
+  <footer class="flex flex-col items-center justify-center gap-2">
+    <div class="flex flex-row items-center justify-center gap-2">
+      {
+        footerInfo.map((info, index) => {
+          return (
+            <>
+              <p class="text-m">{info}</p>
+              {index !== footerInfo.length - 1 && <span class="text-m">|</span>}
+            </>
+          );
+        })
+      }
+    </div>
+    <div class="flex flex-row items-center justify-center gap-2">
+      {
+        profiles.map((profile, index) => {
+          return (
+            <>
+              <p>
+                <a href=`${profile.url}` target="_blank" class="flex flex-row items-center gap-1.5">
+                  <img src={socialIcons[profile.network]} alt=`${profile.network}` class="w-5 h-5" />
+                  {profile.network}
+                  {index !== profiles.length - 1 && <span class="text-m">|</span>}
+                </a>
+              </p>
+            </>
+          )
+        })
+      }
+    </div>
   </footer>
 </Section>
