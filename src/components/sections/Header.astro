@@ -39,7 +39,7 @@ const socialIcons: { [key: string]: string } = {
               <p>
                 <a href=`${profile.url}` target="_blank" class="flex flex-row items-center gap-1.5">
                   <img src={socialIcons[profile.network]} alt=`${profile.network}` class="w-5 h-5" />
-                  {profile.network}
+                  {profile.username}
                   {index !== profiles.length - 1 && <span class="text-m">|</span>}
                 </a>
               </p>

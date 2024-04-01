@@ -22,3 +22,5 @@ pnpm-debug.log*
 
 .vscode
 cv.json
+cv-en.json
+tsconfig.json

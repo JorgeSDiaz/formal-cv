@@ -123,5 +123,8 @@
       "organization": "Fundación Social",
       "position": "Voluntario"
     }
+  ],
+  "competencies": [
+    { "name": "skill" }
   ]
 }

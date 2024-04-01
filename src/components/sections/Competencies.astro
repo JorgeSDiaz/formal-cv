@@ -1,0 +1,17 @@
+---
+import Section from "@/components/Section.astro";
+
+import { competencies } from "@cv";
+---
+
+<Section title="Competencias">
+  <ul class="inline-flex flex-wrap list-inside gap-x-3.5 gap-y-1">
+    {
+      competencies.map((competence) => (
+        <li>
+          <span>{competence.name}</span>
+        </li>
+      ))
+    }
+  </ul>
+</Section>

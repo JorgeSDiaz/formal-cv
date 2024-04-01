@@ -7,6 +7,14 @@ import { skills, languages } from "@cv";
 <Section title="Habilidades">
   <ul class="inline-flex flex-wrap list-inside gap-x-3.5 gap-y-1">
     {
+            languages.map((language) => (
+        <li>
+          <span class="font-bold">{language.language}</span> -{" "}
+          {language.fluency}
+        </li>
+      ))
+    }
+    {
       skills.map((skill) => (
         <li>
           <span>{skill.name}</span>
