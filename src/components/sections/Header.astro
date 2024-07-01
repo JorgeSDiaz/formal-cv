@@ -14,8 +14,8 @@ const socialIcons: { [key: string]: string } = {
 ---
 
 <Section>
-  <header class="flex flex-col items-center justify-center mb-1">
-    <h1 class="text-6xl">{name}</h1>
+  <header class="flex flex-col items-center justify-center">
+    <h1 class="text-5xl">{name}</h1>
     <h2 class="text-2xl">{label}</h2>
   </header>
   <footer class="flex flex-col items-center justify-center gap-2">
@@ -24,7 +24,7 @@ const socialIcons: { [key: string]: string } = {
         footerInfo.map((info, index) => {
           return (
             <>
-              <p class="text-m">{info}</p>
+              <p class="text-sm">{info}</p>
               {index !== footerInfo.length - 1 && <span class="text-m">|</span>}
             </>
           );
@@ -37,7 +37,7 @@ const socialIcons: { [key: string]: string } = {
           return (
             <>
               <p>
-                <a href=`${profile.url}` target="_blank" class="flex flex-row items-center gap-1.5">
+                <a href=`${profile.url}` target="_blank" class="flex flex-row items-center gap-1.5 text-sm">
                   <img src={socialIcons[profile.network]} alt=`${profile.network}` class="w-5 h-5" />
                   {profile.username}
                   {index !== profiles.length - 1 && <span class="text-m">|</span>}

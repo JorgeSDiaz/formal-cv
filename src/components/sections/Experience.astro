@@ -2,13 +2,15 @@
 import Section from "@/components/Section.astro";
 
 import { work } from "@cv";
+import Skills from "./Skills.astro";
 ---
 
 <Section title="Experiencia Profesional">
   <ul>
     {
       work.map((job) => {
-        const { name, position, summary, startDate, endDate, url } = job;
+        const { name, position, summary, startDate, endDate, skillExperiencie, url } = job;
+        
 
         return (
           <li class="mb-3">
@@ -25,7 +27,19 @@ import { work } from "@cv";
                 </time>
               </header>
               <footer>
-                <p>{summary}</p>
+                <ul class="list-inside list-disc">
+                    {summary.map((item) => (
+                      <li class="mx-2 text-pretty">{item}</li>
+                    ))}
+                    <li class="mx-2 text-pretty">
+                      <span class="text-pretty font-bold">Skills:</span>
+                      {
+                        skillExperiencie && skillExperiencie.map((skill: string, index: number) => (
+                          <span class="text-pretty">{skill}</span><span>{index !== skillExperiencie.length - 1 ? ', ' : '.'}</span>
+                        ))
+                      }
+                    </li>
+                  </ul>
               </footer>
             </article>
           </li>
