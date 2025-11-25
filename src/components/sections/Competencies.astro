@@ -1,24 +1,41 @@
 ---
 import Section from "@/components/Section.astro";
+import { ui } from "@/i18n/ui";
 
-import { competencies, languages } from "@cv";
+const { competencies, lang = "es" } = Astro.props;
+const t = ui[lang as keyof typeof ui];
 ---
 
-<Section title="Competencias">
-  <span class="text-pretty font-bold">Habilidades Blandas:</span>
-  {
-    competencies.map((competence, index) => {
-      return <span>{competence.name + (index !== competencies.length - 1 ? ', ' : '.')}</span>
-    }
-    )
-  }
-  <br>
-    <span class="text-pretty font-bold">Idiomas:</span>
+<Section title={t["section.competencies"]}>
+  <div class="competencies-list">
     {
-      languages.map((language, index) => {
-        return <span>{(language.language + ' - ' + language.fluency) + (index !== languages.length - 1 ? ', ' : '.')}</span>
-      }
-      )
+      competencies.map((comp) => (
+        <div class="competency-category">
+          <span class="category-name">{comp.name}: </span>
+          <span class="category-keywords">{comp.keywords.join(", ")}.</span>
+        </div>
+      ))
     }
-
+  </div>
 </Section>
+
+<style>
+  .competencies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .competency-category {
+    font-size: 0.85rem;
+    color: #333;
+  }
+
+  .category-name {
+    font-weight: bold;
+  }
+
+  .category-keywords {
+    color: #555;
+  }
+</style>

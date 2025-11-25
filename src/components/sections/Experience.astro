@@ -1,50 +1,113 @@
 ---
 import Section from "@/components/Section.astro";
 
-import { work } from "@cv";
-import Skills from "./Skills.astro";
+import { ui } from "@/i18n/ui";
+
+const { experience, lang = "es" } = Astro.props;
+const t = ui[lang as keyof typeof ui];
 ---
 
-<Section title="Experiencia Profesional">
-  <ul>
+<Section title={t["section.experience"]}>
+  <div class="experience-list">
     {
-      work.map((job) => {
-        const { name, position, summary, startDate, endDate, skillExperiencie, url } = job;
-        
+      experience.map((job) => {
+        const { name, position, summary, startDate, endDate, highlights, url } =
+          job;
 
         return (
-          <li class="mb-3">
-            <article>
-              <header class="flex flexrow justify-between justify-items-center mb-1">
-                <div class="flex flex-col">
-                  <h3 class="text-l font-bold">
-                    <a href=`${url}` target="_blank">{name}</a>
-                  </h3>
-                  <h4 class="text-m font-bold">{position}</h4>
-                </div>
-                <time class="text-sm font-bold">
+          <article class="experience-item">
+            <header>
+              <div class="title-row">
+                <h3>
+                  {url ? (
+                    <a href={url} target="_blank">
+                      {name}
+                    </a>
+                  ) : (
+                    name
+                  )}
+                </h3>
+                <time>
                   {startDate} - {endDate}
                 </time>
-              </header>
-              <footer>
-                <ul class="list-inside list-disc">
-                    {summary.map((item) => (
-                      <li class="mx-2 text-pretty">{item}</li>
-                    ))}
-                    <li class="mx-2 text-pretty">
-                      <span class="text-pretty font-bold">Skills:</span>
-                      {
-                        skillExperiencie && skillExperiencie.map((skill: string, index: number) => (
-                          <span class="text-pretty">{skill}</span><span>{index !== skillExperiencie.length - 1 ? ', ' : '.'}</span>
-                        ))
-                      }
-                    </li>
-                  </ul>
-              </footer>
-            </article>
-          </li>
+              </div>
+              <h4>{position}</h4>
+            </header>
+
+            <ul class="responsibilities">
+              {summary.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </article>
         );
       })
     }
-  </ul>
+  </div>
 </Section>
+
+<style>
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .experience-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+  }
+
+  .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: 0.2px;
+  }
+
+  h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  h3 a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #444;
+    margin: 0;
+    font-style: italic;
+  }
+
+  time {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .responsibilities {
+    list-style-type: disc;
+    margin: 0.1rem 0 0.1rem 1rem;
+    padding: 0;
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  .responsibilities li {
+    margin-bottom: 0.05rem;
+  }
+</style>

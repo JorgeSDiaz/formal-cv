@@ -1,24 +1,48 @@
 ---
-import { volunteering } from "@cv";
+import Section from "@/components/Section.astro";
+import { ui } from "@/i18n/ui";
+
+const { volunteering, lang = "es" } = Astro.props;
+const t = ui[lang as keyof typeof ui];
 ---
 
-<section>
-  <h2 class="font-bold text-xl">Voluntariado</h2>
-  <hr class="border-gray-300" />
-  <ul>
+<Section title={t["section.volunteering"]}>
+  <div class="volunteering-list">
     {
       volunteering.map((volunteer) => (
-        <li>
-          <span class="font-bold">{volunteer.organization}</span> -{" "}
-          {volunteer.position}
-        </li>
+        <div class="volunteer-item">
+          <span class="organization">{volunteer.organization}</span>
+          <span class="separator">-</span>
+          <span class="position">{volunteer.position}</span>
+        </div>
       ))
     }
-  </ul>
-</section>
+  </div>
+</Section>
 
 <style>
-    section {
-    margin: 0 auto 10px;
+  .volunteering-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .volunteer-item {
+    font-size: 0.85rem;
+    color: #333;
+  }
+
+  .organization {
+    font-weight: bold;
+    color: #ae784f; /* A brownish color from the image for the organization name? Or just bold black? Image looks like bold black or dark grey. Let's stick to dark grey/black */
+    color: #222;
+  }
+
+  .separator {
+    margin: 0 0.3rem;
+  }
+
+  .position {
+    color: #555;
   }
 </style>

@@ -1,33 +1,52 @@
 ---
-import { education } from "@cv";
+import Section from "@/components/Section.astro";
+import { ui } from "@/i18n/ui";
+
+const { education, lang = "es" } = Astro.props;
+const t = ui[lang as keyof typeof ui];
 ---
 
-<section>
-  <h2 class="font-bold text-xl">Educación</h2>
-  <hr class="border-gray-300" />
-  <ul>
+<Section title={t["section.education"]}>
+  <div class="education-list">
     {
       education.map(
         ({ studyType, area, institution, startDate, endDate, url }) => (
-          <li class="mb-2">
-            <article>
-              <header>
-                <a href={url} target="_blank">
-                  <h3 class="text-l font-bold">
-                    {studyType}: {area}
-                  </h3>
-                </a>
-              </header>
-              <footer>
-                <p>
-                  {institution} | {startDate}
-                  {endDate && ` - ${endDate}`}
-                </p>
-              </footer>
-            </article>
-          </li>
-        )
+          <article class="education-item">
+            <header>
+              <h3>
+                {studyType}: {area}
+              </h3>
+            </header>
+            <footer>
+              <p>
+                {institution} | {startDate}
+                {endDate && ` - ${endDate}`}
+              </p>
+            </footer>
+          </article>
+        ),
       )
     }
-  </ul>
-</section>
+  </div>
+</Section>
+
+<style>
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .education-item h3 {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #222;
+    margin: 0;
+  }
+
+  .education-item p {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 0;
+  }
+</style>

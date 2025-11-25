@@ -1,130 +1,151 @@
 {
-  "awards": [
-    {
-      "awarder": "Asociación de Desarrollo Tecnológico",
-      "date": "2019-08-15",
-      "summary": "Reconocimiento por contribuciones sobresalientes en el desarrollo de proyectos innovadores.",
-      "title": "Premio al Desarrollo Tecnológico"
-    }
-  ],
   "basics": {
-    "email": "juanperez@example.com",
-    "image": "https://example.com/juanperez.jpg",
-    "label": "Ingeniero de Software",
+    "name": "Your Full Name",
+    "label": "Your Professional Title/Role",
+    "image": "",
+    "email": "your.email@example.com",
+    "phone": "(+XX) XXXXXXXXXX",
+    "url": "",
+    "summary": "A compelling professional summary that highlights your expertise, experience, and what makes you unique. This should be 3-5 sentences that capture your professional identity, key skills, and career focus. Keep it concise but impactful - this is the first thing recruiters will read.",
     "location": {
-      "address": "Calle Falsa 123",
-      "city": "Ciudad Ficticia",
-      "countryCode": "CO",
-      "postalCode": "12345",
-      "region": "Fictivia"
+      "address": "",
+      "postalCode": "",
+      "city": "Your City",
+      "countryCode": "Your Country",
+      "region": ""
     },
-    "name": "Juan Perez",
-    "phone": "(+57) 3001234567",
     "profiles": [
       {
         "network": "LinkedIn",
-        "url": "https://www.linkedin.com/in/juanperez/",
-        "username": "juanperez"
+        "username": "your-linkedin-username",
+        "url": "https://www.linkedin.com/in/your-profile/"
       },
       {
         "network": "GitHub",
-        "url": "https://www.github.com/juanperez/",
-        "username": "juanperez"
+        "username": "YourGitHubUsername",
+        "url": "https://github.com/YourGitHubUsername"
       }
-    ],
-    "summary": "Ingeniero de software con experiencia en el desarrollo de aplicaciones web y móviles. Apasionado por la resolución de problemas y el aprendizaje continuo."
+    ]
   },
-  "certificates": [
+  "work": [
     {
-      "date": "2022-10-20",
-      "issuer": "Instituto de Tecnología Avanzada",
-      "name": "Certificado de Desarrollo Web",
-      "url": "https://example.com/certificate"
+      "name": "Company Name 1",
+      "position": "Your Job Title",
+      "url": "",
+      "startDate": "Month YYYY",
+      "endDate": "Month YYYY or 'present'",
+      "summary": [
+        "First key achievement or responsibility - focus on impact and results",
+        "Second key achievement - use action verbs and quantify when possible"
+      ],
+      "highlights": [
+        "Technology 1",
+        "Technology 2",
+        "Technology 3",
+        "Skill 1",
+        "Skill 2"
+      ]
+    },
+    {
+      "name": "Company Name 2",
+      "position": "Your Job Title",
+      "url": "",
+      "startDate": "Month YYYY",
+      "endDate": "Month YYYY",
+      "summary": [
+        "Key achievement or responsibility",
+        "Another important contribution"
+      ],
+      "highlights": [
+        "Technology 1",
+        "Technology 2",
+        "Framework 1"
+      ]
+    },
+    {
+      "name": "Company Name 3",
+      "position": "Your Job Title",
+      "url": "",
+      "startDate": "Month YYYY",
+      "endDate": "Month YYYY",
+      "summary": [
+        "Important achievement",
+        "Key responsibility or impact"
+      ],
+      "highlights": [
+        "Tool 1",
+        "Tool 2",
+        "Technology 1"
+      ]
     }
   ],
   "education": [
     {
-      "area": "Ingeniería de Sistemas",
-      "courses": [],
-      "endDate": "2022",
-      "institution": "Universidad Central",
-      "score": "4.5",
-      "startDate": "2018",
-      "studyType": "Pregrado",
-      "url": "https://www.universidadcentral.edu.co/"
-    }
-  ],
-  "interests": [
-    {
-      "keywords": ["Fotografía", "Senderismo"],
-      "name": "Pasatiempos"
-    }
-  ],
-  "languages": [
-    {
-      "fluency": "Intermedio",
-      "language": "Francés"
-    }
-  ],
-  "projects": [
-    {
-      "description": "Aplicación móvil para la gestión de tareas y recordatorios.",
-      "isActive": true,
-      "endDate": "",
-      "highlights": ["React Native", "Firebase"],
-      "name": "Taskify",
-      "startDate": "2021-07",
-      "url": "https://github.com/juanperez/taskify"
-    }
-  ],
-  "publications": [
-    {
-      "name": "Artículo sobre Desarrollo de Software",
-      "publisher": "Revista de Ingeniería",
-      "releaseDate": "2020-03-15",
-      "summary": "Análisis sobre las tendencias actuales en el desarrollo de software ágil.",
-      "url": "https://revistadeingenieria.com/articulo"
-    }
-  ],
-  "references": [
-    {
-      "name": "María López",
-      "reference": "Excelente profesional, siempre dispuesto a colaborar y aportar nuevas ideas."
+      "institution": "University or Institution Name",
+      "url": "",
+      "area": "Your Degree/Major",
+      "studyType": "Undergraduate/Graduate/Postgraduate",
+      "startDate": "YYYY",
+      "endDate": "YYYY",
+      "score": "",
+      "courses": []
     }
   ],
   "skills": [
-    { "name": "HTML" },
-    { "name": "CSS" },
-    { "name": "JavaScript" },
-    { "name": "React" },
-    { "name": "Node.js" },
-    { "name": "MongoDB" },
-    { "name": "Express" },
-    { "name": "Git" },
-    { "name": "AWS" },
-    { "name": "Docker" }
-  ],
-  "work": [
     {
-      "endDate": "Feb 2024",
-      "highlights": [
-        "Desarrollo de nuevas características",
-        "Optimización de rendimiento"
-      ],
-      "name": "Empresa XYZ",
-      "position": "Desarrollador Full Stack",
-      "startDate": "Jun 2022",
-      "summary": "Participación activa en el desarrollo y mantenimiento de una plataforma de gestión de proyectos. Implementación de funcionalidades clave y mejora de la experiencia del usuario.",
-      "url": "https://empresaxyz.com/"
+      "name": "Languages",
+      "keywords": [
+        "Language 1 - Proficiency Level (e.g., Native, C1, B2)",
+        "Language 2 - Proficiency Level"
+      ]
+    },
+    {
+      "name": "Technologies",
+      "keywords": [
+        "Programming Language 1",
+        "Programming Language 2",
+        "Framework 1",
+        "Framework 2",
+        "Database 1",
+        "Database 2",
+        "Tool 1",
+        "Tool 2",
+        "Cloud Platform",
+        "DevOps Tool",
+        "Methodology",
+        "Other Relevant Technology"
+      ]
+    }
+  ],
+  "competencies": [
+    {
+      "name": "Soft Skills & Technical Competencies",
+      "keywords": [
+        "Soft Skill 1 (e.g., Collaboration)",
+        "Soft Skill 2 (e.g., Adaptability)",
+        "Soft Skill 3 (e.g., Leadership)",
+        "Technical Competency 1 (e.g., Microservices Architecture)",
+        "Technical Competency 2 (e.g., Performance Optimization)",
+        "Technical Competency 3 (e.g., Data Analysis)"
+      ]
     }
   ],
   "volunteering": [
     {
-      "organization": "Fundación Social",
-      "position": "Voluntario"
+      "organization": "Organization Name",
+      "position": "Your Role (e.g., Mentor, Volunteer)",
+      "url": "",
+      "startDate": "",
+      "endDate": "",
+      "summary": "",
+      "highlights": []
     }
   ],
-  "competencies": [
-    { "name": "skill" }
-  ]
+  "awards": [],
+  "certificates": [],
+  "publications": [],
+  "interests": [],
+  "languages": [],
+  "projects": [],
+  "references": []
 }

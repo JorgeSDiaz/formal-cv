@@ -1,52 +1,125 @@
 ---
-import { basics } from "@cv";
 import Section from "@/components/Section.astro";
+import { Mail, MapPin, Phone, GitHub, LinkedIn, World } from "@/icons";
 
-const { name, label, phone, email, location, profiles } = basics;
-const { city, region } = location;
+const { basics } = Astro.props;
+const { name, label, image, location, profiles, phone, email, url } = basics;
+const { city, countryCode } = location;
 
-const footerInfo = [`${city}, ${region}`, phone, email];
+const footerInfo = [`${city}, ${countryCode}`, phone, email];
 const socialIcons: { [key: string]: string } = {
-  // Put the key word of the social network exactly as it is in the JSON file
-  "LinkedIn": "https://www.svgrepo.com/show/510045/linkedin.svg",
-  "GitHub": "https://www.svgrepo.com/show/512317/github-142.svg"
-}
+  LinkedIn: "https://www.svgrepo.com/show/510045/linkedin.svg",
+  GitHub: "https://www.svgrepo.com/show/512317/github-142.svg",
+};
 ---
 
 <Section>
-  <header class="flex flex-col items-center justify-center">
-    <h1 class="text-5xl">{name}</h1>
-    <h2 class="text-2xl">{label}</h2>
-  </header>
-  <footer class="flex flex-col items-center justify-center gap-2">
-    <div class="flex flex-row items-center justify-center gap-2">
+  <header class="header-container">
+    <h1>{name}</h1>
+    <h2>{label}</h2>
+
+    <div class="contact-info">
       {
         footerInfo.map((info, index) => {
           return (
             <>
-              <p class="text-sm">{info}</p>
-              {index !== footerInfo.length - 1 && <span class="text-m">|</span>}
+              <span>{info}</span>
+              {index !== footerInfo.length - 1 && (
+                <span class="separator">|</span>
+              )}
             </>
           );
         })
       }
     </div>
-    <div class="flex flex-row items-center justify-center gap-2">
+
+    <div class="social-links">
       {
         profiles.map((profile, index) => {
           return (
-            <>
-              <p>
-                <a href=`${profile.url}` target="_blank" class="flex flex-row items-center gap-1.5 text-sm">
-                  <img src={socialIcons[profile.network]} alt=`${profile.network}` class="w-5 h-5" />
-                  {profile.username}
-                  {index !== profiles.length - 1 && <span class="text-m">|</span>}
-                </a>
-              </p>
-            </>
-          )
+            <a href={profile.url} target="_blank" rel="noopener noreferrer">
+              <img src={socialIcons[profile.network]} alt={profile.network} />
+              {profile.username}
+            </a>
+          );
         })
       }
     </div>
-  </footer>
+  </header>
 </Section>
+
+<style>
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #222;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+  }
+
+  h2 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0;
+    color: #444;
+    font-style: italic;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.15rem;
+  }
+
+  .separator {
+    color: #999;
+    font-weight: 300;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    margin-top: 0.15rem;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: #2c2c2c;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: #000;
+  }
+
+  .social-links img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .social-links a:hover img {
+    opacity: 1;
+  }
+</style>

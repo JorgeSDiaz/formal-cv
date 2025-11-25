@@ -1,25 +1,62 @@
 ---
 import Section from "@/components/Section.astro";
+import { ui } from "@/i18n/ui";
 
-import { skills, languages } from "@cv";
+const { skills, lang = "es" } = Astro.props;
+const t = ui[lang as keyof typeof ui];
 ---
 
-<Section>
-  <ul class="inline-flex flex-wrap list-inside gap-x-3.5 gap-y-1">
+<Section title={t["section.skills"]}>
+  <div class="skills-list">
     {
-            languages.map((language) => (
-        <li>
-          <span class="font-bold">{language.language}</span> -{" "}
-          {language.fluency}
-        </li>
+      skills.map((category) => (
+        <div class="skill-category">
+          <h4>{category.name}</h4>
+          <ul class="skills-list">
+            {category.keywords.map((keyword) => (
+              <li>{keyword}</li>
+            ))}
+          </ul>
+        </div>
       ))
     }
-    {
-      skills.map((skill) => (
-        <li>
-          <span>{skill.name}</span>
-        </li>
-      ))
-    }
-  </ul>
+  </div>
 </Section>
+
+<style>
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-category h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.35rem;
+    color: #333;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .skills-list li {
+    background-color: #eee;
+    color: #333;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  /* Specific styling for Tecnologías to match the dark tags in the image */
+  .skill-category:nth-of-type(2) .skills-list li {
+    background-color: #2d3748;
+    color: white;
+  }
+</style>

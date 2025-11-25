@@ -1,9 +1,13 @@
 ---
 import Section from "@/components/Section.astro";
 
-import { basics } from "@cv";
+import { ui } from "@/i18n/ui";
+
+const { basics, lang = "es" } = Astro.props;
+const t = ui[lang as keyof typeof ui];
+const { summary } = basics;
 ---
 
-<Section title="Perfil">
-  <p class="text-justify">{basics.summary}</p>
+<Section title={t["section.profile"]}>
+  <p class="text-justify">{summary}</p>
 </Section>

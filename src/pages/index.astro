@@ -9,35 +9,65 @@ import Skills from "@/components/sections/Skills.astro";
 import Volunteering from "@/components/sections/Volunteering.astro";
 import Section from "@/components/Section.astro";
 
-import { basics } from "@cv";
-const { name, label} = basics;
-
-// div class="education-voluntering" is used to display the education and volunteering sections side by side
-// Future: create a component to display 2 sections side by side
-
+import {
+  basics,
+  skills,
+  education,
+  work,
+  volunteering,
+  competencies,
+} from "../../cv-es.json";
+const { name, label } = basics;
 ---
 
-<Layout title=`${name} - ${label}`>
+<Layout title=`${name} - ${label}` lang="es">
   <main>
-    <Header />
-    <Profile />
-    <Experience />
-    <Section>
-    <Competencies />
-    <div class="education-voluntering">
-      <Education />
-      <Volunteering />
+    <Header basics={basics} />
+    <div class="content-grid">
+      <div class="left-column">
+        <Profile basics={basics} lang="es" />
+        <Experience experience={work} lang="es" />
+      </div>
+      <div class="right-column">
+        <Skills skills={skills} lang="es" />
+        <Education education={education} lang="es" />
+        <Competencies competencies={competencies} lang="es" />
+        <Volunteering volunteering={volunteering} lang="es" />
+      </div>
     </div>
-    </Section>
   </main>
 </Layout>
 
 <style>
+  main {
+    padding: 0.3rem 1rem;
+    margin: auto;
+    width: 100%;
+    max-width: 960px;
+  }
 
-  .education-voluntering {
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.6fr;
+    gap: 0.6rem;
+    margin-top: 0.2rem;
+  }
+
+  .left-column {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.05rem;
+  }
+
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 700px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
